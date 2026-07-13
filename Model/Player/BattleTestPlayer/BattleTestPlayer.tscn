@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bjk0ve4ddgqsu"]
+
+[ext_resource type="PackedScene" uid="uid://bkn6bsrh1cwq5" path="res://Core/Resources/BattlePlayer/battle_player.tscn" id="1_6jsm6"]
+[ext_resource type="Script" uid="uid://d2reexyuihyh4" path="res://Model/Player/BattleTestPlayer/BattleTestPlayer.cs" id="2_ba5k5"]
+[ext_resource type="Texture2D" uid="uid://dfobpi44qc1o1" path="res://assets/player/defaultCharacter.png" id="3_wagvi"]
+[ext_resource type="Texture2D" uid="uid://bo8y32i0a8nid" path="res://assets/BattleObject/battelShadow16.png" id="4_v1rn1"]
+
+[node name="BattleTestPlayer" unique_id=1382479129 instance=ExtResource("1_6jsm6")]
+script = ExtResource("2_ba5k5")
+
+[node name="ObjectSprite" parent="." index="1" unique_id=471319487]
+offset = Vector2(0, 60)
+texture = ExtResource("3_wagvi")
+hframes = 4
+vframes = 3
+
+[node name="Shadow" parent="." index="2" unique_id=589750743]
+texture = ExtResource("4_v1rn1")

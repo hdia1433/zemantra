@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c55hqei5mg6ko"]
+
+[ext_resource type="Script" uid="uid://csnylap10o2xv" path="res://Core/Resources/BattleSelector/MoveSelector.cs" id="1_2yjla"]
+
+[node name="MoveSelector" type="Node3D" unique_id=384649724]
+script = ExtResource("1_2yjla")
+
+[node name="CameraMarker" type="Marker3D" parent="." unique_id=676801215]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.7861463, 0.6180405, 0, -0.6180405, 0.7861463, 0, 2.0217137, 2.113112)

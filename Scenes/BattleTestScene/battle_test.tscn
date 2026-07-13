@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://blx4wvv8h1hud"]
+
+[ext_resource type="Script" uid="uid://cpgkn21rmqlbv" path="res://Scenes/BattleTestScene/BattleTestScene.cs" id="1_6hgnn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_get7w"]
+sky_top_color = Color(0.83692497, 0, 0.22215924, 1)
+sky_horizon_color = Color(0.9887914, 0.4080936, 5.7756904e-07, 1)
+ground_horizon_color = Color(0.6356602, 0.29632413, 0, 1)
+
+[sub_resource type="Sky" id="Sky_6hgnn"]
+sky_material = SubResource("ProceduralSkyMaterial_get7w")
+
+[sub_resource type="Environment" id="Environment_ls7i1"]
+background_mode = 2
+sky = SubResource("Sky_6hgnn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_get7w"]
+load_path = "res://.godot/imported/tileTest.png-8bc127723c7cd1fa77b3a240ee1565b9.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_get7w"]
+albedo_texture = SubResource("CompressedTexture2D_get7w")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8pv1m"]
+size = Vector2(8, 8)
+
+[node name="Battle test" type="Node3D" unique_id=975101803]
+script = ExtResource("1_6hgnn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1240201437]
+environment = SubResource("Environment_ls7i1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1599517524]
+transform = Transform3D(-0.86602545, -0.43301272, 0.24999996, 0.4870826, -0.8435423, 0.22624564, 0.11291829, 0.3177051, 0.94144195, 0, 5.04326, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=395311014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+material_override = SubResource("StandardMaterial3D_get7w")
+mesh = SubResource("PlaneMesh_8pv1m")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1719831783]
+transform = Transform3D(1, 0, 0, 0, 0.93788904, 0.34693557, 0, -0.34693557, 0.93788904, 3.9999998, 2.0718198, 10.772919)
+current = true
+
+[node name="BattleObjects" type="Node3D" parent="." unique_id=2008903156]
+unique_name_in_owner = true

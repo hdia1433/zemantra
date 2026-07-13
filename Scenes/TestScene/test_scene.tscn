@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ctx7i3ny2xavh"]
+
+[ext_resource type="Texture2D" uid="uid://dnru1infpo2w8" path="res://assets/kenney_prototype-textures/Vector/texture_10.svg" id="1_fyvjo"]
+[ext_resource type="PackedScene" uid="uid://dyt4d0cjv7i3d" path="res://Model/Player/player.tscn" id="2_4a7y3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4a7y3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_boajs"]
+sky_material = SubResource("ProceduralSkyMaterial_4a7y3")
+
+[sub_resource type="Environment" id="Environment_w5fok"]
+background_mode = 2
+sky = SubResource("Sky_boajs")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4a7y3"]
+albedo_texture = ExtResource("1_fyvjo")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1m2j8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4a7y3"]
+
+[node name="TestScene" type="Node3D" unique_id=330806205]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=291778671]
+environment = SubResource("Environment_w5fok")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=169921765]
+transform = Transform3D(-0.6183601, -0.6592424, -0.4278205, -0.6063256, 0.053847447, 0.7933912, -0.50000006, 0.75, -0.43301266, 0, 3.0031729, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=148199951]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_4a7y3")
+mesh = SubResource("PlaneMesh_1m2j8")
+
+[node name="CharacterBody3D" parent="." unique_id=2123796294 instance=ExtResource("2_4a7y3")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=969351489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8459592, 0.5315218, 0)
+mesh = SubResource("BoxMesh_4a7y3")

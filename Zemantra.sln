@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zemantra", "Zemantra.csproj", "{45FB294E-7B78-4A3B-90BC-FD6EBB7BD97E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45FB294E-7B78-4A3B-90BC-FD6EBB7BD97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45FB294E-7B78-4A3B-90BC-FD6EBB7BD97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45FB294E-7B78-4A3B-90BC-FD6EBB7BD97E}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{45FB294E-7B78-4A3B-90BC-FD6EBB7BD97E}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{45FB294E-7B78-4A3B-90BC-FD6EBB7BD97E}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{45FB294E-7B78-4A3B-90BC-FD6EBB7BD97E}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

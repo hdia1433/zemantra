@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://c3wa24f0c1abo"]
+
+[ext_resource type="Script" uid="uid://cojwvctlunsx7" path="res://addons/scene_manager/SceneManagerScene.cs" id="1_1etm4"]
+[ext_resource type="PackedScene" uid="uid://blx4wvv8h1hud" path="res://Scenes/BattleTestScene/battle_test.tscn" id="2_uq7jj"]
+
+[sub_resource type="Animation" id="Animation_1etm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uq7jj"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a8e8g"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x1qli"]
+_data = {
+&"RESET": SubResource("Animation_1etm4"),
+&"fade_in": SubResource("Animation_uq7jj"),
+&"fade_out": SubResource("Animation_a8e8g")
+}
+
+[node name="SceneManager" type="Node" unique_id=406713208]
+script = ExtResource("1_1etm4")
+
+[node name="Scene 3D" type="Node3D" parent="." unique_id=1483207008]
+unique_name_in_owner = true
+
+[node name="Battle test" parent="Scene 3D" unique_id=975101803 instance=ExtResource("2_uq7jj")]
+
+[node name="Scene 2D" type="Node2D" parent="." unique_id=1538753632]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1010350836]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1963887191]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Fade Transition" type="Control" parent="CanvasLayer" unique_id=1663752045]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Fade Transition" unique_id=1677657050]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Fade Transition" unique_id=1614313716]
+libraries/ = SubResource("AnimationLibrary_x1qli")
+autoplay = &"fade_in"

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://yl56x18fuudw"]
+
+[ext_resource type="PackedScene" uid="uid://b4vqloe3midnr" path="res://Core/Resources/BattleEnemy/battle_enemy.tscn" id="1_15ey1"]
+[ext_resource type="Texture2D" uid="uid://dduvf40qgvni1" path="res://assets/Enemies/TestEnemy/TestEnemy.png" id="2_7mlr3"]
+[ext_resource type="Script" uid="uid://cvsvj861o242r" path="res://Model/Enemies/TestEnemy/BattleTestEnemy.cs" id="2_ywdaf"]
+[ext_resource type="Texture2D" uid="uid://bo8y32i0a8nid" path="res://assets/BattleObject/battelShadow16.png" id="3_ywdaf"]
+
+[node name="BattleTestEnemy" unique_id=1382479129 instance=ExtResource("1_15ey1")]
+script = ExtResource("2_ywdaf")
+
+[node name="Sprite3D" parent="." index="1" unique_id=471319487]
+offset = Vector2(0, 60)
+texture = ExtResource("2_7mlr3")
+
+[node name="Shadow" parent="." index="2" unique_id=589750743]
+texture = ExtResource("3_ywdaf")

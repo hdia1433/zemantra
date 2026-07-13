@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://pauk5cuvo45c"]
+
+[ext_resource type="Texture2D" uid="uid://c83y7fruq765v" path="res://Model/Battle/battleTiles/Test/tileTest.png" id="1_ip63n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ll2j1"]
+albedo_texture = ExtResource("1_ip63n")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ami44"]
+size = Vector2(0.8, 0.8)
+
+[node name="BattleTestTile" type="Node3D" unique_id=1471586675]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1273475890]
+material_override = SubResource("StandardMaterial3D_ll2j1")
+mesh = SubResource("PlaneMesh_ami44")

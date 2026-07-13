@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dktarwsit3nox"]
+
+[ext_resource type="Script" uid="uid://cobqk84f18uin" path="res://Core/Resources/battleObject/BattleObject.cs" id="1_nxlqb"]
+
+[node name="BattleObject" type="Node3D" unique_id=1382479129]
+script = ExtResource("1_nxlqb")
+
+[node name="CameraMarker" type="Marker3D" parent="." unique_id=1043239119]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9167498, 0.3994621, 0, -0.3994621, 0.9167498, 0, 2.8149898, 2.5391994)
+
+[node name="ObjectSprite" type="Sprite3D" parent="." unique_id=471319487]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.4)
+billboard = 2
+shaded = true
+double_sided = false
+alpha_cut = 3
+alpha_scissor_threshold = 0.1
+
+[node name="Shadow" type="Sprite3D" parent="." unique_id=589750743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.001, 0.4)
+axis = 1
+billboard = 2
+double_sided = false

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dyt4d0cjv7i3d"]
+
+[ext_resource type="Texture2D" uid="uid://dfobpi44qc1o1" path="res://assets/player/defaultCharacter.png" id="1_1gwna"]
+[ext_resource type="Script" uid="uid://dge6upxk6ywu4" path="res://Model/Player/Player.cs" id="1_sqjkf"]
+[ext_resource type="Shader" uid="uid://ulxjtu8bfwr5" path="res://Model/Player/player.gdshader" id="2_6cp2m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqwdn"]
+render_priority = 0
+shader = ExtResource("2_6cp2m")
+shader_parameter/spriteTexture = ExtResource("1_1gwna")
+shader_parameter/shadowColour = Color(0.25, 0.25, 0.25, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lm1aw"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2123796294]
+script = ExtResource("1_sqjkf")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=92775405]
+material_overlay = SubResource("ShaderMaterial_yqwdn")
+offset = Vector2(0, 60)
+billboard = 2
+shaded = true
+alpha_cut = 3
+texture = ExtResource("1_1gwna")
+hframes = 4
+vframes = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1144725202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67159677, 0)
+shape = SubResource("BoxShape3D_lm1aw")
+
+[node name="pitch" type="Node3D" parent="." unique_id=324087297]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.8161376, 0.5778576, 0, -0.5778576, 0.8161376, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="pitch" unique_id=1468110861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

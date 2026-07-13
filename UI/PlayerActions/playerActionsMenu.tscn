@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bjsvkhyu71qj4"]
+
+[ext_resource type="Script" uid="uid://tcppxmhepvgi" path="res://UI/PlayerActions/PlayerActionsMenu.cs" id="1_5weps"]
+
+[node name="PlayerActionsMenu" type="Control" unique_id=256319547]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5weps")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1682690548]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -750.0
+offset_top = -300.0
+offset_right = -250.0
+offset_bottom = -300.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_position = Vector2(500, 0)

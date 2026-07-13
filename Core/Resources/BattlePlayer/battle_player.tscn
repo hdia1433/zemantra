@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bkn6bsrh1cwq5"]
+
+[ext_resource type="PackedScene" uid="uid://dktarwsit3nox" path="res://Core/Resources/battleObject/battle_object.tscn" id="1_g371f"]
+[ext_resource type="Script" uid="uid://dpvadu0xw1cxw" path="res://Core/Resources/BattlePlayer/BattlePlayer.cs" id="2_cgfit"]
+[ext_resource type="Texture2D" uid="uid://clo4lncecwsgj" path="res://assets/BattleSelector2d/battleSelectable2d.png" id="3_t401s"]
+[ext_resource type="PackedScene" uid="uid://c55hqei5mg6ko" path="res://Core/Resources/BattleSelector/move_selector.tscn" id="4_cgfit"]
+[ext_resource type="Script" uid="uid://c7lovx3jbogwj" path="res://Core/Resources/BattlePlayer/MoveSelectableMesh.cs" id="4_t401s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3xyc"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_t401s")
+emission_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ic2kw"]
+material = SubResource("StandardMaterial3D_b3xyc")
+size = Vector2(0.8, 0.8)
+
+[sub_resource type="MultiMesh" id="MultiMesh_0uhod"]
+transform_format = 1
+use_colors = true
+mesh = SubResource("PlaneMesh_ic2kw")
+
+[node name="BattlePlayer" unique_id=1382479129 instance=ExtResource("1_g371f")]
+script = ExtResource("2_cgfit")
+
+[node name="MoveSelectableMesh" type="MultiMeshInstance3D" parent="." index="3" unique_id=1996577163]
+unique_name_in_owner = true
+top_level = true
+multimesh = SubResource("MultiMesh_0uhod")
+script = ExtResource("4_t401s")
+
+[node name="MoveSelector" parent="." index="4" unique_id=384649724 instance=ExtResource("4_cgfit")]
+unique_name_in_owner = true

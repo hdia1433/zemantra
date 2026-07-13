@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://2sfa224mwr6"]
+
+[ext_resource type="PackedScene" uid="uid://bryvfmw2d660o" path="res://Model/Combat/BattleSelector/SelectorFrame.glb" id="1_wd141"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ic2kw"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.21568628)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5yi3"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.63529414)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ami44"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="BattleSelector" unique_id=336092657 instance=ExtResource("1_wd141")]
+
+[node name="Panels" parent="." index="0" unique_id=740421281]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.4, 0.4, 0.4)
+material_override = SubResource("StandardMaterial3D_ic2kw")
+
+[node name="Edges" parent="." index="1" unique_id=135376513]
+transform = Transform3D(0.41420603, 0, 0, 0, 0.41420603, 0, 0, 0, 0.41420603, 0.4, 0.4, 0.4)
+material_override = SubResource("StandardMaterial3D_p5yi3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=344549971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, 0.4)
+shape = SubResource("BoxShape3D_ami44")
