@@ -9,6 +9,9 @@ enum BattlePlayerState
     SelectingMove
 }
 
+///<summary>
+///The generic player object to be used in battles
+///</summary>
 public partial class BattlePlayer:BattleObject
 {
     protected List<BattlePlayerAction> actions;
@@ -23,6 +26,9 @@ public partial class BattlePlayer:BattleObject
     public List<BattlePlayerAction> Actions
     {get => actions;}
 
+    ///<summary>
+    ///Changes the state the player is in and executes code so that the player's members reflect its new state
+    ///</summary>
     private BattlePlayerState PlayerState
     {
         set
@@ -58,6 +64,9 @@ public partial class BattlePlayer:BattleObject
         }
     }
 
+    ///<summary>
+    ///Changes the current Map Location variable, updates the map to reflect the change, and updates the position of the player to reflect the change as well.
+    ///</summary>
     public override Vector2I MapLoc
     {
         set
@@ -135,6 +144,9 @@ public partial class BattlePlayer:BattleObject
         }
     }
 
+    ///<summary>
+    ///Runs all the setup for the player's movement state
+    ///</summary>
     public void StartMoving()
     {
         PlayerState = BattlePlayerState.SelectingMove;
@@ -181,6 +193,9 @@ public partial class BattlePlayer:BattleObject
         tween.TweenProperty(objectSprite, "modulate:a", .33, 1);
     }
 
+    ///<summary>
+    ///Holds the logic for controlling the selector for the square the player will move to.
+    ///</summary>
     private void SelectingMove()
     {
 
@@ -253,8 +268,12 @@ public partial class BattlePlayer:BattleObject
         moveSelector.BoardLocation += movement;
     }
 
+    ///<summary>
+    ///Runs the code necessary to end the current turn for the player
+    ///</summary>
     public void EndCurrentTurn()
     {
         ReadyToFight = false;
+        movedThisTurn = 0;
     }
 }
