@@ -19,9 +19,9 @@ public partial class BattleObject : Node3D
     [Export]protected BattleFieldManager battleManager;
 
     protected BattleObjectKind kind;
-    private Camera3D camera;
+    protected Camera3D camera;
     private Transform3D defaultCameraPosition;
-    private Marker3D cameraMarker;
+    protected Marker3D cameraMarker;
     protected Sprite3D objectSprite;
     protected bool readyToFight;
     protected ActiveBattleTimer activeBattleTimer;
@@ -85,12 +85,15 @@ public partial class BattleObject : Node3D
     {
         if (battleManager.TurnBeingTaken && !readyToFight)
         {
+            GD.Print("Testing.");
             return;
         }
 
         if(!readyToFight)
         {
             ReadyToFight = activeBattleTimer.incrementTimer(battlePrepSpeed, delta);
+
+            GD.Print(activeBattleTimer.Progress);
             return;
         }
 

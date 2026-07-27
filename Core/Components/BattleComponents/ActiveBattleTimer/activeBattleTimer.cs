@@ -9,6 +9,8 @@ public class ActiveBattleTimer
         totalTime = 10;
     }
 
+    public float Progress {get => progress;}
+
     public bool incrementTimer(int speed, double delta)
     {
         progress += speed * (float)delta;

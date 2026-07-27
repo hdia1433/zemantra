@@ -7,7 +7,7 @@ script = ExtResource("1_nxlqb")
 
 [node name="CameraMarker" type="Marker3D" parent="." unique_id=1043239119]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9167498, 0.3994621, 0, -0.3994621, 0.9167498, 0, 2.8149898, 2.5391994)
+transform = Transform3D(1, 0, 0, 0, 0.9167498, 0.3994621, 0, -0.3994621, 0.9167498, 0, 2.4198496, 2.6073523)
 
 [node name="ObjectSprite" type="Sprite3D" parent="." unique_id=471319487]
 unique_name_in_owner = true

@@ -35,13 +35,11 @@ public partial class BattlePlayer:BattleObject
             switch(playerState)
             {
                 case BattlePlayerState.SelectingAction:
-                    GD.Print("Was selecting action");
                     SceneManager.scene.HideLoadedHud();
                     break;
                 case BattlePlayerState.SelectingMove:
-                    GD.Print("Was selecting move");
                     Tween tween = CreateTween();
-                    tween.TweenProperty(objectSprite, "modulate:a", .33, 1);
+                    tween.TweenProperty(objectSprite, "modulate:a", 1, 1);
                     moveSelectableMesh.clearIndecis();
                     break;
             }
@@ -51,13 +49,11 @@ public partial class BattlePlayer:BattleObject
             switch(playerState)
             {
                 case BattlePlayerState.SelectingAction:
-                    GD.Print("Am now selecting action");
                     SceneManager.scene.SwitchToLoadedHud(actionMenuId, false);
+                    Tween tween = CreateTween();
+                    tween.TweenProperty(camera, "global_transform", cameraMarker.GlobalTransform, 1);
                     break;
-                case BattlePlayerState.SelectingMove:
-                    GD.Print("Am now selecting move");
-                    StartMoving();
-                    break;
+
             }
         }
     }
@@ -66,7 +62,7 @@ public partial class BattlePlayer:BattleObject
     {
         set
         {
-            if(battleManager.Map[mapLoc.X, mapLoc.Y] != null)
+            if(battleManager != null)
             {
                 battleManager.Map[mapLoc.X, mapLoc.Y] = null;
             }
@@ -74,7 +70,10 @@ public partial class BattlePlayer:BattleObject
             mapLoc = value;
             moveSelector.BoardLocation = value;
 
-            battleManager.Map[mapLoc.X, mapLoc.Y] = this;
+            if(battleManager != null)
+            {
+                battleManager.Map[mapLoc.X, mapLoc.Y] = this;
+            }
 
             Position = new(mapLoc.X * SizeValues.Inst.GridSizeM, Position.Y, mapLoc.Y * SizeValues.Inst.GridSizeM);
         }
@@ -112,6 +111,7 @@ public partial class BattlePlayer:BattleObject
         await base.StartTurn(duration);
 
         PlayerState = BattlePlayerState.SelectingAction;
+        actionMenu.EnableAllActions();
     }
 
     protected override async Task EndTurn(float duration = 1)
@@ -140,6 +140,7 @@ public partial class BattlePlayer:BattleObject
         PlayerState = BattlePlayerState.SelectingMove;
 
         int count = 0;
+
         for(int x = 0; x < battleManager.Map.GetLength(0); x++)
         {
             for(int y = 0; y < battleManager.Map.GetLength(1); y++)
@@ -212,6 +213,7 @@ public partial class BattlePlayer:BattleObject
             if((int)(battleMoveSpeed - movedThisTurn) == 0)
             {
                 PlayerState = BattlePlayerState.SelectingAction;
+                actionMenu.DisableAction(BattlePlayerAction.Move);
             }
             else
             {
@@ -253,6 +255,6 @@ public partial class BattlePlayer:BattleObject
 
     public void EndCurrentTurn()
     {
-        var _ = EndTurn();
+        ReadyToFight = false;
     }
 }

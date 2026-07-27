@@ -50,9 +50,24 @@ public partial class PlayerActionsMenu : Control
         }
     }
 
+    ///<summary>
+    ///Disables the button for the associated action in the action menu for the player.
+    ///</summary>
+    ///<param name="action">The action to disable</param>
     public void DisableAction(BattlePlayerAction action)
     {
         actionMap[action].Disabled = true;
+    }
+
+    public void EnableAllActions()
+    {
+        foreach(Button button in actionMap.Values)
+        {
+            if(button.Disabled)
+            {
+                button.Disabled = false;
+            }
+        }
     }
 
     public void NewTurn()
